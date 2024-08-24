@@ -48,6 +48,10 @@ ruleTester.run("capital-function-name", rule, {
     {
       code: "const A = function a(){}",
     },
+    {
+      code: "const routes = {components: () => {}}",
+      options:[['components']]
+    },
   ],
 
   invalid: [
