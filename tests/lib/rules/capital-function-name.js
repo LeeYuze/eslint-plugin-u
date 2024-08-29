@@ -19,7 +19,7 @@ const ruleTester = new RuleTester();
 ruleTester.run("capital-function-name", rule, {
   valid: [
     {
-      code: "function Get(){}",
+      code: "function Get() {}",
     },
     {
       code: "const Abc = () => {}",
@@ -52,6 +52,26 @@ ruleTester.run("capital-function-name", rule, {
       code: "const routes = {components: () => {}}",
       options:[['components']]
     },
+    {
+      code: `service.interceptors.request.use(
+    (config) => {
+      return config
+    },
+    // 发送失败
+    (error) => Promise.reject(error),
+  )`
+    },
+    {
+      code: `service.interceptors.request.use(
+    function(config) {
+      return config
+    },
+    // 发送失败
+    function(error){
+      return Promise.reject(error)
+    },
+  )`
+    }
   ],
 
   invalid: [
