@@ -1,7 +1,11 @@
 {
   "name": "@leeyuze/eslint-plugin-u",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "u team eslint",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LeeYuze/eslint-plugin-u.git"
+  },
   "keywords": [
     "eslint",
     "eslintplugin",

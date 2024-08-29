@@ -34,7 +34,12 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "@leeyuze/u/rule-name": 2
+        // 用 switch 代替 else if
+        "@leeyuze/u/max-if-else": "error",
+        // 函数首字母必须大写, 允许component为小写
+        "@leeyuze/u/capital-function-name": ["error", ["component"]],
+        // enum类型名称必须以Enum结尾
+        "@leeyuze/u/enum-end-names-with-enum": "error",
     }
 }
 ```
