@@ -1,63 +1,63 @@
 # eslint-plugin-u
 
-u team eslint
+U 团队 ESLint 插件
 
 ## Installation
 
-You'll first need to install [ESLint](https://eslint.org/):
-
 ```sh
-npm i eslint --save-dev
-```
-
-Next, install `eslint-plugin-u`:
-
-```sh
-npm install eslint-plugin-u --save-dev
+npm install @leeyuze/eslint-plugin-u --save-dev
 ```
 
 ## Usage
 
-Add `u` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+### 方式一：使用推荐配置（推荐）
 
-```json
-{
-    "plugins": [
-        "@leeyuze/u"
-    ]
-}
+在 `eslint.config.mjs` 中使用预设配置，一键启用所有规则：
+
+```js
+import pluginU from "@leeyuze/eslint-plugin-u";
+
+export default [
+  pluginU.configs.recommended,
+];
 ```
 
+### 方式二：手动配置规则
 
-Then configure the rules you want to use under the rules section.
+```js
+import pluginU from "@leeyuze/eslint-plugin-u";
 
-```json
-{
-    "rules": {
-        // 用 switch 代替 else if
-        "@leeyuze/u/max-if-else": "error",
-        // 函数首字母必须大写, 允许component为小写
-        "@leeyuze/u/capital-function-name": ["error", ["component"]],
-        // enum类型名称必须以Enum结尾
-        "@leeyuze/u/enum-end-names-with-enum": "error",
-    }
-}
+export default [
+  {
+    plugins: {
+      u: pluginU,
+    },
+    rules: {
+      // 用 switch 代替 else if
+      "u/max-if-else": "warn",
+      // 函数首字母必须大写, 允许 component 为小写
+      "u/capital-function-name": ["warn", ["component"]],
+      // enum 类型名称必须以 Enum 结尾
+      "u/enum-end-names-with-enum": "warn",
+    },
+  },
+];
 ```
-
-
 
 ## Configurations
 
-<!-- begin auto-generated configs list -->
-TODO: Run eslint-doc-generator to generate the configs list (or delete this section if no configs are offered).
-<!-- end auto-generated configs list -->
-
-
+| 配置名 | 描述 |
+| ------ | ---- |
+| `recommended` | 启用所有推荐规则（warn 级别） |
 
 ## Rules
 
-<!-- begin auto-generated rules list -->
-TODO: Run eslint-doc-generator to generate the rules list.
-<!-- end auto-generated rules list -->
+| 规则名 | 描述 |
+| ------ | ---- |
+| [capital-function-name](docs/rules/capital-function-name.md) | 函数名首字母必须大写 |
+| [enum-end-names-with-enum](docs/rules/enum-end-names-with-enum.md) | TypeScript Enum 类型命名必须以 "Enum" 结尾 |
+| [max-if-else](docs/rules/max-if-else.md) | 多个 else if 时建议使用 switch 语句 |
 
+## License
 
+MIT
